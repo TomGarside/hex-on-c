@@ -8,7 +8,8 @@
 
 void readFile(char*);
 char hexNums(int); 
-
+void readStdin(); 
+void processLine(char*);
 
 int main(int argc, char** argv){
   // read list of files from argv if none exist read from stdin
@@ -18,9 +19,35 @@ int main(int argc, char** argv){
       readFile(argv[e]);
   }
   else{
-    printf("No files read");
+    readStdin();
   }
   
+}
+//read from stdin
+void readStdin(){
+ char* line = NULL;
+ size_t len = 0;
+ ssize_t read; 
+ 
+while((read = getline(&line, &len, stdin)) != -1){                                               processLine(line);                                                                      
+    }    
+  
+}
+//process and print a single line 
+void processLine(char* line){
+    int linelen=strlen(line);   
+    char line1[linelen];
+    char line2[linelen];
+
+    for( int i=0; i<linelen; i++){
+       
+      line1[i] = hexNums(line[i]);
+      line2[i] = hexNums(line[i]/16);;
+    }
+    printf(" %s", line);
+    printf("|%s|\n",line1);
+    printf("|%s|\n",line2); 
+ 
 }
 
 // process a single file 
@@ -34,18 +61,7 @@ void readFile(char* filename){
     exit(EXIT_FAILURE);
 
   while((read = getline(&line, &len, file)) != -1){
-    int linelen = strlen(line);
-    char line1[linelen];
-    char line2[linelen];
-
-    for( int i=0; i<linelen; i++){;       
-      line1[i] = hexNums(line[i]);
-      line2[i] = hexNums(line[i]/16);;
-    }
-    printf(" %s", line);
-    printf("|%s|",line1);
-    printf("|%s|",line2); 
-    
+    processLine(line);    
   }
   
 }
