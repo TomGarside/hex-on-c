@@ -45,8 +45,8 @@ void processLine(char* line){
       line2[i] = hexNums(line[i]/16);;
     }
     printf(" %s", line);
-    printf("|%s|\n",line1);
-    printf("|%s|\n",line2); 
+    printf("|%s|\n",line2);
+    printf("|%s|\n",line1); 
  
 }
 

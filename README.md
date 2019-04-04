@@ -7,6 +7,6 @@ Reads from files or stdin and prints text along with hex values to stdout
 output 
 ```
  The Quick Brown Fox Jumps Over The Lazy Dog!
-|48501593B022F7E06F80A5D030F65204850C1A904F71A|
 |566257666247676246724767724767256624677246620|
+|48501593B022F7E06F80A5D030F65204850C1A904F71A|
 ```
