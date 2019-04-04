@@ -29,7 +29,8 @@ void readStdin(){
  size_t len = 0;
  ssize_t read; 
  
-while((read = getline(&line, &len, stdin)) != -1){                                               processLine(line);                                                                      
+while((read = getline(&line, &len, stdin)) != -1){                                       
+    processLine(line);                                                                      
     }    
   
 }
